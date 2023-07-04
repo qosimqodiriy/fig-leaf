@@ -1,0 +1,19 @@
+@import './style.css';
+@import './tailwind.css';
+
+
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: local('Bebas Neue'), url('../fonts/Bebas-Neue.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TT Firs Neue';
+    src: local('TT Firs Neue'), url('../fonts/TT-Firs-Neue.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: local('TT Interfaces'), url('../fonts/TT-Interfaces.ttf') format('truetype');
+}
