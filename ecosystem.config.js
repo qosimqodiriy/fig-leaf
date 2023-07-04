@@ -1,13 +1,11 @@
 module.exports = {
-    apps: [
-      {
-        name: "Fig-Leaf",
-        exec_mode: 'cluster',
-        instances: '4', // Or a number of instances
-        script: './node_modules/nuxt/bin/nuxt.js',
-        args: 'start',
-      },
-    ],
-  }
-  
-  
+  apps: [
+    {
+      name: 'Fig-Leaf',
+      port: '3000',
+      exec_mode: 'cluster',
+      instances: 'max',
+      script: './.output/server/index.mjs'
+    }
+  ]
+}
