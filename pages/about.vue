@@ -1,6 +1,6 @@
 <template>
     <div class="py-40">
-        <PageTitle />
+        <PageTitle text="Информация о нашей компании" pageName="О нас" />
         <div class="container">
             <div class="py-40 max-w-1100 mx-auto mb-30 lg:mb-50">
                 <p class="text-22 lg:text-24 xl:text-28 2xl:text-32 mb-24">Основным направлением деятельности компании является производство мужского белья ориентированная на вкусы и предпочтения потребителей.</p>

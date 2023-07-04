@@ -1,6 +1,6 @@
 <template>
     <div class="py-40">
-        <PageTitle />
+        <PageTitle text="Наши корзина" pageName="backet" />
         <div class="container">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-40 md:py-50 lg:py-60 xl:py-70">
                 <div class="p-20 md:p-24 lg:p-28 xl:p-32 border border-gray-secondary lg:col-span-2 bg-orange-primary">
