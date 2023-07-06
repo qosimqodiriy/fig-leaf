@@ -3,8 +3,8 @@
         <PageTitle text="Наши корзина" pageName="backet" />
         <div class="container">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-40 md:py-50 lg:py-60 xl:py-70">
-                <div class="p-20 md:p-24 lg:p-28 xl:p-32 border border-gray-secondary lg:col-span-2 bg-orange-primary">
-                    evlnelk
+                <div class="space-y-24 p-20 md:p-24 lg:p-28 xl:p-32 border border-gray-secondary lg:col-span-2">
+                    <basket-item v-for="card in 3" :key="card" />
                 </div>
 
                 <div class="p-20 md:p-24 lg:p-28 xl:p-32 border border-gray-secondary">
@@ -24,8 +24,13 @@
 
             <hr class="border border-gray-secondary my-24 lg:my-40">
 
-            <div class="bg-colour-green my-24 lg:my-40">
-                <p class="text-18 md:text-22 lg:text-24 xl:text-28 2xl:text-32 font-semibold font-firsNeue leading-150 mb-24">РЕКОМЕНДОВАННЫЕ ТОВАРЫ</p>
+            <div class="my-24 lg:my-40">
+                <Recommended />
+                <!-- <p class="text-18 md:text-22 lg:text-24 xl:text-28 2xl:text-32 font-semibold font-firsNeue leading-150 mb-24">РЕКОМЕНДОВАННЫЕ ТОВАРЫ</p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-16">
+                    <product-card v-for="card in 5" :key="card" />
+                </div> -->
             </div>
         </div>
     </div>
@@ -34,11 +39,17 @@
 
 <script>
 import PageTitle from '~/components/PageTitle.vue';
+import BasketItem from '~/components/BasketItem.vue';
+import ProductCard from '~/components/ProductCard.vue';
+import Recommended from '~/components/Recommended.vue';
 
 
 export default {
     components: {
         PageTitle,
+        BasketItem,
+        ProductCard,
+        Recommended,
     },
 }
 </script>

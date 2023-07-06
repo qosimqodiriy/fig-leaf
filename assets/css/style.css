@@ -9,4 +9,6 @@
     margin: 0 auto;
     padding: 0 15px;
     max-width: 1707px;
+    width: 100% !important;
+    /* background-color: aqua !important; */
 }

@@ -8,10 +8,12 @@
 
                 <div class="lg:col-span-2">
                     <p class="text-16 md:text-18 leading-110 md:leading-150 mb-24">Амина ТМ специализируется на производстве мужского нижнего белья. Наша продукция нашла своего покупателя не только в нашей стране, но и в России, других государствах.</p>
-                    <div class="inline-flex items-center bg-green-secondary rounded-2 gap-8 py-10 md:py-12 lg:py-14 xl:py-16 px-20 md:px-26 lg:px-32 xl:px-40">
-                        <p class="text-14 font-semibold leading-130 uppercase">Свяжется с нами</p>
-                        <img src="@/assets/icons/arrow-right.svg" alt="">
-                    </div>
+                    <NuxtLink to="/contact">
+                        <div class="inline-flex items-center bg-green-secondary rounded-2 gap-8 py-10 md:py-12 lg:py-14 xl:py-16 px-20 md:px-26 lg:px-32 xl:px-40">
+                            <p class="text-14 font-semibold leading-130 uppercase">Свяжется с нами</p>
+                            <img src="@/assets/icons/arrow-right.svg" alt="">
+                        </div>
+                    </NuxtLink>
                 </div>
             </div>
 

@@ -23,17 +23,17 @@
                     <div class="space-y-24 max-w-400">
                         <p class="footer_title">Продукция</p>
 
-                        <p class="footer_text">Мужская одежда</p>
-                        <p class="footer_text">Женская одежда</p>
-                        <p class="footer_text">Детская одежда</p>
+                        <NuxtLink :to="{path: '/products', query:{category: 'children'}}" class="footer_text">Детская одежда</NuxtLink>
+                        <NuxtLink :to="{path: '/products', query:{category: 'men'}}" class="footer_text">Мужская одежда</NuxtLink>
+                        <NuxtLink :to="{path: '/products', query:{category: 'women'}}" class="footer_text">Женская одежда</NuxtLink>
                     </div>
 
 
                     <div class="space-y-24 max-w-400">
                         <p class="footer_title">Компании</p>
 
-                        <p class="footer_text">О нас</p>
-                        <p class="footer_text">Контакты</p>
+                        <NuxtLink to="/about" class="footer_text">О нас</NuxtLink>
+                        <NuxtLink to="/contact" class="footer_text">Контакты</NuxtLink>
                     </div>
 
 
@@ -73,20 +73,21 @@ export default {
 
 <style scoped>
     .footer_title {
-        color: var(--dark-green, #1D2B1E);
         font-size: 20px;
-        font-family: 'TT Firs Neue';
-        font-style: normal;
         font-weight: 600;
         line-height: 150%;
+        font-style: normal;
+        font-family: 'TT Firs Neue';
+        color: var(--dark-green, #1D2B1E);
     }
 
     .footer_text {
-        color: var(--dark-green, #1D2B1E);
+        display: block;
         font-size: 18px;
-        font-family: 'TT Interfaces';
-        font-style: normal;
         font-weight: 400;
         line-height: 150%;
+        font-style: normal;
+        font-family: 'TT Interfaces';
+        color: var(--dark-green, #1D2B1E);
     }
 </style>

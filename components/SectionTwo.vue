@@ -7,10 +7,12 @@
                     <p class="text-18 md:text-22 lg:text-24 xl:text-28 2xl:text-32 text-black-primary mb-10 lg:mb-16">Основным направлением деятельности компании является производство мужского белья ориентированная на вкусы и предпочтения потребителей.</p>
                     <p class="text-16 lg:text-18 text-black-secondary mb-20 md:mb-26 lg:mb-36 xl:mb-44 2xl:mb-56">Накопленный 25- летний опыт в сфере производства мужского трикотажного белья, дал возможность пройти большой путь от изготовления первого прототипа до выпуска современных, удобных и эстетичных моделей.Благодаря сплоченной команде профессионалов и грамотной маркетинговой политики, компания добилась значительных успехов, заняв ведущее место на рынке готовых трикотажных изделий и полотна.Наша продукция проходит полный цикл - от создания полотна до готового изделия - непосредственно на предприятии.</p>
 
-                    <div class="inline-flex items-center bg-green-secondary rounded-2 gap-8 py-10 md:py-12 lg:py-14 xl:py-16 px-20 md:px-26 lg:px-32 xl:px-40">
-                        <p class="text-14 font-semibold leading-130 uppercase">Свяжется с нами</p>
-                        <img src="@/assets/icons/arrow-right.svg" alt="arrow right">
-                    </div>
+                    <NuxtLink to="/contact">
+                        <div class="inline-flex items-center bg-green-secondary rounded-2 gap-8 py-10 md:py-12 lg:py-14 xl:py-16 px-20 md:px-26 lg:px-32 xl:px-40">
+                            <p class="text-14 font-semibold leading-130 uppercase">Свяжется с нами</p>
+                            <img src="@/assets/icons/arrow-right.svg" alt="arrow right">
+                        </div>
+                    </NuxtLink>
                 </div>
 
 
@@ -52,55 +54,62 @@
                 <p class="text-24 md:text-24 lg:text-26 xl:text-28 2xl:text-32 font-semibold to-black-primary leading-150 mb-15 lg:mb-24">Наша Продукция</p>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-5 gap-y-20">
-                    <div class="grid_card cursor-pointer w-full border border-gray-secondary bg-white-secondary flex">
-                        <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col">
-                            <p class="text-16 md:text-18 xl:text-20 mb-auto whitespace-nowrap max-w-202 flex-wrap">Детская одежда</p>
+                    <NuxtLink :to="{path: '/products', query:{category: 'children'}}">
+                        <div class="grid_card cursor-pointer w-full border border-gray-secondary bg-white-secondary flex">
+                            <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col">
+                                <p class="text-16 md:text-18 xl:text-20 mb-auto whitespace-nowrap max-w-202 flex-wrap">Детская одежда</p>
 
-                            <div class="flex items-center gap-8">
-                                <p class="text-16 md:text-18 font-medium text-green-primary">Подробное</p>
+                                <div class="flex items-center gap-8">
+                                    <p class="text-16 md:text-18 font-medium text-green-primary">Подробное</p>
 
-                                <img class="arrow_right w-24 h-24" src="../assets/icons/arrow-right-green.png" alt="arrow">
+                                    <img class="arrow_right w-24 h-24" src="../assets/icons/arrow-right-green.png" alt="arrow">
+                                </div>
+                            </div>
+
+                            <div class="w-full flex justify-end">
+                                <img src="../assets/images/product1.png" alt="product">
                             </div>
                         </div>
-
-                        <div class="w-full flex justify-end">
-                            <img src="../assets/images/product1.png" alt="product">
-                        </div>
-                    </div>
+                    </NuxtLink>
+                    
 
 
-                    <div class="grid_card cursor-pointer w-full border border-gray-secondary bg-white-secondary flex">
-                        <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col">
-                            <p class="text-16 md:text-18 xl:text-20 mb-auto whitespace-nowrap max-w-202 flex-wrap">Мужская одежда</p>
+                    <NuxtLink :to="{path: '/products', query:{category: 'men'}}">
+                        <div class="grid_card cursor-pointer w-full border border-gray-secondary bg-white-secondary flex">
+                            <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col">
+                                <p class="text-16 md:text-18 xl:text-20 mb-auto whitespace-nowrap max-w-202 flex-wrap">Мужская одежда</p>
 
-                            <div class="flex items-center gap-8">
-                                <p class="text-16 md:text-18 font-medium text-green-primary">Подробное</p>
+                                <div class="flex items-center gap-8">
+                                    <p class="text-16 md:text-18 font-medium text-green-primary">Подробное</p>
 
-                                <img class="arrow_right w-24 h-24" src="../assets/icons/arrow-right-green.png" alt="arrow">
+                                    <img class="arrow_right w-24 h-24" src="../assets/icons/arrow-right-green.png" alt="arrow">
+                                </div>
+                            </div>
+
+                            <div class="w-full flex justify-end">
+                                <img src="../assets/images/product2.png" alt="product">
                             </div>
                         </div>
-
-                        <div class="w-full flex justify-end">
-                            <img src="../assets/images/product2.png" alt="product">
-                        </div>
-                    </div>
+                    </NuxtLink>
 
 
-                    <div class="grid_card cursor-pointer w-full border border-gray-secondary bg-white-secondary flex">
-                        <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col">
-                            <p class="text-16 md:text-18 xl:text-20 mb-auto whitespace-nowrap max-w-202 flex-wrap">Женская одежда</p>
+                    <NuxtLink :to="{path: '/products', query:{category: 'women'}}">
+                        <div class="grid_card cursor-pointer w-full border border-gray-secondary bg-white-secondary flex">
+                            <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col">
+                                <p class="text-16 md:text-18 xl:text-20 mb-auto whitespace-nowrap max-w-202 flex-wrap">Женская одежда</p>
 
-                            <div class="flex items-center gap-8">
-                                <p class="text-16 md:text-18 font-medium text-green-primary">Подробное</p>
+                                <div class="flex items-center gap-8">
+                                    <p class="text-16 md:text-18 font-medium text-green-primary">Подробное</p>
 
-                                <img class="arrow_right w-24 h-24" src="../assets/icons/arrow-right-green.png" alt="arrow">
+                                    <img class="arrow_right w-24 h-24" src="../assets/icons/arrow-right-green.png" alt="arrow">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="w-full flex justify-end">
-                            <img src="../assets/images/product3.png" alt="product">
-                        </div>
+                            <div class="w-full flex justify-end">
+                                <img src="../assets/images/product3.png" alt="product">
+                            </div>
                     </div>
+                    </NuxtLink>
                 </div>
             </div>
         </div>
