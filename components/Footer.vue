@@ -49,7 +49,7 @@
             <hr class="border border-gray-secondary my-24">
 
             <div>
-                <p class="text-18 leading-150 text-black-secondary">Все права защищены © 2023</p>
+                <p class="text-18 leading-150 text-black-secondary">{{ $t('copyText') }}</p>
             </div>
         </div>
     </div>
