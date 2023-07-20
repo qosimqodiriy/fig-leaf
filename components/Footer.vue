@@ -18,27 +18,26 @@
                 </div>
 
 
-
                 <div class="flex flex-col md:flex-row gap-80 md:gap-100 lg:gap-120 xl:gap-150">
                     <div class="space-y-24 max-w-400">
-                        <p class="footer_title">Продукция</p>
+                        <p class="footer_title">{{ $t('products') }}</p>
 
-                        <NuxtLink :to="{path: '/products', query:{category: 'children'}}" class="footer_text">Детская одежда</NuxtLink>
-                        <NuxtLink :to="{path: '/products', query:{category: 'men'}}" class="footer_text">Мужская одежда</NuxtLink>
-                        <NuxtLink :to="{path: '/products', query:{category: 'women'}}" class="footer_text">Женская одежда</NuxtLink>
+                        <NuxtLink :to="{path: '/products', query:{category: 'children'}}" class="footer_text">{{ $t('baby') }}</NuxtLink>
+                        <NuxtLink :to="{path: '/products', query:{category: 'men'}}" class="footer_text">{{ $t('men') }}</NuxtLink>
+                        <NuxtLink :to="{path: '/products', query:{category: 'women'}}" class="footer_text">{{ $t('women') }}</NuxtLink>
                     </div>
 
 
                     <div class="space-y-24 max-w-400">
-                        <p class="footer_title">Компании</p>
+                        <p class="footer_title">{{ $t('company') }}</p>
 
-                        <NuxtLink to="/about" class="footer_text">О нас</NuxtLink>
-                        <NuxtLink to="/contact" class="footer_text">Контакты</NuxtLink>
+                        <NuxtLink to="/about" class="footer_text">{{ $t('aboutUs') }}</NuxtLink>
+                        <NuxtLink to="/contact" class="footer_text">{{ $t('contacts') }}</NuxtLink>
                     </div>
 
 
                     <div class="space-y-24 max-w-400">
-                        <p class="footer_title">Контакт</p>
+                        <p class="footer_title">{{ $t('contact') }}</p>
 
                         <p class="footer_text"><a href="tel:+998971811112" class="footer_text">+998 97 181 11 12</a></p>
                         <p class="footer_text"><a href="mailto:figleaftextile@gmail.com" class="">figleaftextile@gmail.com</a></p>

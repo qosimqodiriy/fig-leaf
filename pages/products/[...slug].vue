@@ -3,8 +3,8 @@
     <div class="container_inner max-w-1200 mx-auto py-40 space-y-40 lg:space-y-64">
       <div class="space-y-24">
         <div class="flex items-center flex-wrap gap-5">
-            <NuxtLink to="/"><p class="text-18 font-interfaces text-gray-text transition-all duration-300 hover:text-black-primary">Главная</p></NuxtLink>
-            <NuxtLink to="/products"><p class="text-18 font-interfaces text-gray-text transition-all duration-300 hover:text-black-primary">/ Продукты</p></NuxtLink>
+            <NuxtLink to="/"><p class="text-18 font-interfaces text-gray-text transition-all duration-300 hover:text-black-primary">{{ $t('home') }}</p></NuxtLink>
+            <NuxtLink to="/products"><p class="text-18 font-interfaces text-gray-text transition-all duration-300 hover:text-black-primary">/ {{ $t('products') }}</p></NuxtLink>
             <p class="text-18 font-interfaces text-balck-primary">/ Men’s briefs classic</p>
           </div>
 
@@ -53,7 +53,7 @@
 
               <p class="text-22 md:text-24 lg:text-26 xl:text-28 font-medium mb-16">99 846 216 sum</p>
               <div class="flex items-center justify-center gap-24 py-10 lg:py-16 bg-green-secondary">
-                <p class="text-14 font-semibold uppercase text-black-primary font-firsNeue">В Корзину</p>
+                <p class="text-14 font-semibold uppercase text-black-primary font-firsNeue">{{ $t('backet') }}</p>
                 <img class="w-20 h-20" src="../../assets/images/basket.png" alt="">
               </div>
             </div>
@@ -62,21 +62,21 @@
 
 
       <div class="py-20 md:py-24 lg:py-30 xl:py-36 px-24 md:px-30 lg:px-36 xl:px-48 border border-gray-secondary">
-        <p class="text-18 md:text-22 lg:text-24 xl:text-28 2xl:text-32 font-semibold font-firsNeue mb-40">Детали товары</p>
+        <p class="text-18 md:text-22 lg:text-24 xl:text-28 2xl:text-32 font-semibold font-firsNeue mb-40">{{ $t('productDetali') }}</p>
 
         <div class="max-w-full lg:max-w-600 space-y-16 lg:space-y-24">
           <div class="flex items-end gap-10">
-            <p class="text-16 lg:text-18 font-medium font-interfaces leading-150 text-black-secondary whitespace-nowrap">Код</p>
+            <p class="text-16 lg:text-18 font-medium font-interfaces leading-150 text-black-secondary whitespace-nowrap">{{ $t('productDetaliText1') }}</p>
             <p class="line w-full border-b border-gray-secondary border-dashed mb-7"></p>
             <p class="text-16 lg:text-18 font-medium font-interfaces leading-150 whitespace-nowrap">047-Х</p>
           </div>
           <div class="flex items-end gap-10">
-            <p class="text-16 lg:text-18 font-medium font-interfaces leading-150 text-black-secondary whitespace-nowrap">Полотно</p>
+            <p class="text-16 lg:text-18 font-medium font-interfaces leading-150 text-black-secondary whitespace-nowrap">{{ $t('productDetaliText2') }}</p>
             <p class="line w-full border-b border-gray-secondary border-dashed mb-7"></p>
             <p class="text-16 lg:text-18 font-medium font-interfaces leading-150 whitespace-nowrap">Рибана</p>
           </div>
           <div class="flex items-end gap-10">
-            <p class="text-16 lg:text-18 font-medium font-interfaces leading-150 text-black-secondary whitespace-nowrap">Состав</p>
+            <p class="text-16 lg:text-18 font-medium font-interfaces leading-150 text-black-secondary whitespace-nowrap">{{ $t('productDetaliText3') }}</p>
             <p class="line w-full border-b border-gray-secondary border-dashed mb-7"></p>
             <p class="text-16 lg:text-18 font-medium font-interfaces leading-150 whitespace-nowrap">100% хлопок</p>
           </div>

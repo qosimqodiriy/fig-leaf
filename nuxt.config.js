@@ -8,8 +8,13 @@ export default defineNuxtConfig({
   ],
   
   modules: [
+    '@nuxtjs/i18n',
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
+  ],
+
+  plugins: [
+    // '~/plugins/getAPI.js',
   ],
 
   compilerOptions: {
@@ -17,6 +22,15 @@ export default defineNuxtConfig({
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
+  },
+
+  axios: {
+    baseURL: 'https://mediasaboq.uz/api/v1',
+    // baseURL: 'http://207.154.207.34:8083/api/v1/',
+  },
+
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://mediasaboq.uz/api/v1'
   },
 
   build: {

@@ -1,6 +1,6 @@
 <template>
     <div class="py-40">
-        <PageTitle text="Наши продукты" pageName="Product" />
+        <PageTitle :text="$t('product')" :pageName="$t('products')" />
         
         <div class="container">
             <div class="my-40 lg:my-60 2xl:my-80 space-y-40">
@@ -8,7 +8,7 @@
                     <div class="w-full md:w-250 p-15 md:p-18 lg:p-22 xl:p-26 2xl:p-30 shrink-0 space-y-16 border border-gray-secondary">
                         <div class="tab_box overflow-hidden" :class="tab_1 == true ? 'tab_active' : 'tab_not_active'">
                             <div class="tab_title flex items-center justify-between gap-10 cursor-pointer"  @click="tab_1 = !tab_1">
-                                <p class="text-18 font-medium font-interfaces">Детская одежда</p>
+                                <p class="text-18 font-medium font-interfaces">{{ $t('baby') }}</p>
                                 
                                 <img class="w-26 h-26" :class="tab_1 == true ? 'rotate-90' : ''" src="../../assets/icons/arrow-right-s-green.png" alt="">
                             </div>
@@ -21,7 +21,7 @@
 
                         <div class="tab_box overflow-hidden" :class="tab_2 == true ? 'tab_active' : 'tab_not_active'">
                             <div class="tab_title flex items-center justify-between gap-10 cursor-pointer"  @click="tab_2 = !tab_2">
-                                <p class="text-18 font-medium font-interfaces">Мужская одежда</p>
+                                <p class="text-18 font-medium font-interfaces">{{ $t('men') }}</p>
                                 
                                 <img class="w-26 h-26" :class="tab_2 == true ? 'rotate-90' : ''" src="../../assets/icons/arrow-right-s-green.png" alt="">
                             </div>
@@ -34,7 +34,7 @@
 
                         <div class="tab_box overflow-hidden" :class="tab_3 == true ? 'tab_active' : 'tab_not_active'">
                             <div class="tab_title flex items-center justify-between gap-10 cursor-pointer"  @click="tab_3 = !tab_3">
-                                <p class="text-18 font-medium font-interfaces">Женская одежда</p>
+                                <p class="text-18 font-medium font-interfaces">{{ $t('women') }}</p>
                                 
                                 <img class="w-26 h-26" :class="tab_3 == true ? 'rotate-90' : ''" src="../../assets/icons/arrow-right-s-green.png" alt="">
                             </div>

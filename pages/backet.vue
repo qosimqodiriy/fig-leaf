@@ -8,17 +8,17 @@
                 </div>
 
                 <div class="p-20 md:p-24 lg:p-28 xl:p-32 border border-gray-secondary">
-                    <p class="text-18 md:text-20 lg:text-22 xl:text-24 font-semibold font-interfaces mb-20 lg:mb-32">Ваш заказ</p>
+                    <p class="text-18 md:text-20 lg:text-22 xl:text-24 font-semibold font-interfaces mb-20 lg:mb-32">{{ $t('order') }}</p>
                     <div class="flex items-center justify-between">
-                        <p class="text-16 md:text-18 font-interfaces text-black-secondary">Товары, 3 шт</p>
-                        <p class="text-16 md:text-18 font-interfaces text-black-dark font-medium">4 000 000 сум</p>
+                        <p class="text-16 md:text-18 font-interfaces text-black-secondary">{{ $t('ordercount') }}, 3 {{ $t('count') }}</p>
+                        <p class="text-16 md:text-18 font-interfaces text-black-dark font-medium">4 000 000 so'm</p>
                     </div>
                     <hr class="w-full border border-gray-secondary my-24">
                     <div class="flex items-center justify-between mb-20 lg:mb-32">
-                        <p class="text-18 md:text-20 font-interfaces text-black-secondary font-medium">Товары, 3 шт</p>
-                        <p class="text-20 md:text-24 font-interfaces text-green-primary font-semibold">4 000 000 сум</p>
+                        <p class="text-18 md:text-20 font-interfaces text-black-secondary font-medium">{{ $t('ordercount') }}, 3 {{ $t('count') }}</p>
+                        <p class="text-20 md:text-24 font-interfaces text-green-primary font-semibold">4 000 000 so'm</p>
                     </div>
-                    <p class="text-14 uppercase font-semibold font-firsNeue text-black-dark leading-150 py-10 md:py-12 lg:py-16 text-center bg-green-secondary">Оформить заказ</p>
+                    <p class="text-14 uppercase font-semibold font-firsNeue text-black-dark leading-150 py-10 md:py-12 lg:py-16 text-center bg-green-secondary">{{ $t('checkout') }}</p>
                 </div>
             </div>
 
