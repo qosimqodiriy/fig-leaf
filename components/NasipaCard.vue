@@ -18,8 +18,6 @@
 
 
 <style scoped>
-
-
 .section_two {
     background: url('../assets/images/bg.png') no-repeat center center;
     background-size: cover;

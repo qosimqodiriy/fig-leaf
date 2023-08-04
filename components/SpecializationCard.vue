@@ -1,12 +1,8 @@
 <template>
     <div class="card w-full min-w-300 lg:min-w-350 max-w-350 lg:max-w-500 p-24 bg-white-secondary cursor-pointer overflow-hidden relative">
-        <p class="card_text text-20 md:text-24 font-semibold leading-140 text-black-primary mb-32 lg:mb-40">Майки</p>
-        <div class="w-full px-46">
-            <img v-if="num == 1" class="card_img max-w-full" src="../assets/images/product_img_1.png" alt="">
-            <img v-else-if="num == 2" class="card_img max-w-full" src="../assets/images/product_img_2.png" alt="">
-            <img v-else-if="num == 3" class="card_img max-w-full" src="../assets/images/product_img_3.png" alt="">
-            <img v-else-if="num == 4" class="card_img max-w-full" src="../assets/images/product_img_4.png" alt="">
-            <img v-else class="card_img max-w-full" src="../assets/images/product_img_3.png" alt="">
+        <p class="card_text text-20 md:text-24 font-semibold leading-140 text-black-primary mb-32 lg:mb-40">{{ item.name[$i18n.locale] }}</p>
+        <div class="flex flex-col items-center justify-center w-full px-46 min-h-235">
+            <base-image :src="item.image" class="card_img max-w-full max-h-full min-h-200 object-cover object-center" :alt="item.name.uz" />
         </div>
 
 
@@ -28,6 +24,10 @@
 export default {
 
     props: {
+        item: {
+            type: Object,
+            required: true,
+        },
         num: {
             type: Number,
             required: true,

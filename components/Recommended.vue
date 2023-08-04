@@ -19,15 +19,15 @@ export default {
     },
 
     methods: {
-        // async getBooks() {
-        //     const res = await axios.get(`https://mediasaboq.uz/api/v1/books`)
-        //     console.log(res.data);
-        //     console.log("Response");
-        // },
+        async getBooks() {
+            const res = await axios.get(`https://mediasaboq.uz/api/v1/books`)
+            // console.log(res.data);
+            // console.log("Response");
+        },
     },
 
     mounted() {
-        console.log("Hello recommended");
+        // console.log("Hello recommended");
         // this.getBooks();
     }
 }

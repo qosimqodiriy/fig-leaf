@@ -10,10 +10,7 @@
                     </NuxtLink>
 
                     <div class="flex items-center flex-wrap gap-15 md:gap-18 xl:gap-24">
-                        <!-- <a href="#" target="_blank"><img class="w-24 h-24 cursor-pointer" src="../assets/icons/facebook.png" alt=""></a> -->
-                        <a href="https://t.me/figleaftextile" target="_blank"><img class="w-24 h-24 cursor-pointer" src="../assets/icons/telegram.png" alt=""></a>
-                        <a href="https://www.wechat.com/figleaftextile" target="_blank"><img class="w-24 h-24 cursor-pointer" src="../assets/icons/wechat.png" alt=""></a>
-                        <a href="https://www.instagram.com/figleaftextile/" target="_blank"><img class="w-24 h-24 cursor-pointer" src="../assets/icons/instagram.png" alt=""></a>
+                        <a v-for="social in socials" :key="social.id" :href="social.url" target="_blank"><base-image class="w-30 h-30 cursor-pointer" :src="social.icon" /></a>
                     </div>
                 </div>
 
@@ -22,9 +19,7 @@
                     <div class="space-y-24 max-w-400">
                         <p class="footer_title">{{ $t('products') }}</p>
 
-                        <NuxtLink :to="{path: '/products', query:{category: 'children'}}" class="footer_text">{{ $t('baby') }}</NuxtLink>
-                        <NuxtLink :to="{path: '/products', query:{category: 'men'}}" class="footer_text">{{ $t('men') }}</NuxtLink>
-                        <NuxtLink :to="{path: '/products', query:{category: 'women'}}" class="footer_text">{{ $t('women') }}</NuxtLink>
+                        <NuxtLink v-for="item in category" :key="item.id" :to="{path: '/products', query:{category: item.id}}" class="footer_text">{{ item.name[$i18n.locale] }}</NuxtLink>
                     </div>
 
 
@@ -39,9 +34,12 @@
                     <div class="space-y-24 max-w-400">
                         <p class="footer_title">{{ $t('contact') }}</p>
 
-                        <p class="footer_text"><a href="tel:+998971811112" class="footer_text">+998 97 181 11 12</a></p>
-                        <p class="footer_text"><a href="mailto:figleaftextile@gmail.com" class="">figleaftextile@gmail.com</a></p>
-                        <p class="footer_text"><a href="https://yandex.uz/maps/10335/tashkent/?ll=69.146134%2C41.253285&mode=whatshere&whatshere%5Bpoint%5D=69.145321%2C41.253183&whatshere%5Bzoom%5D=17&z=17.62" target="_blank" class="">Тошкент вилояти, Зангиота тумани, Эшонгузар қўрғони, Охунбобев кўчаси 1-a уй</a></p>
+                        <div class="flex flex-wrap items-center gap-24">
+                            <p><a href="tel:+998971811112" class="footer_text">{{ contact.phone }}</a></p>
+                            <p><a href="tel:+998971811112" class="footer_text">{{ contact.phone2 }}</a></p>
+                        </div>
+                        <p><a href="mailto:figleaftextile@gmail.com" class="footer_text">{{ contact.email }}</a></p>
+                        <p><a :href="`https://yandex.uz/maps/10335/tashkent/?ll=${contact.long}%2C${contact.lat}&mode=whatshere&whatshere%5Bpoint%5D=${contact.long}%2C${contact.lat}&whatshere%5Bzoom%5D=17&z=17.62`" target="_blank" class="whitespace-normal">{{ contact.address && contact.address[$i18n.locale] ? contact.address[$i18n.locale] : 'Тошкент вилояти, Зангиота тумани, Эшонгузар қўрғони, Охунбобев кўчаси 1-a уй' }}</a></p>
                     </div>
                 </div>
             </div>
@@ -59,11 +57,48 @@
 
 
 <script>
+import axios from 'axios'
+
 export default {
+    data() {
+        return {
+            contact: {},
+            socials: [],
+            category: [],
+        }
+    },
+
     methods: {
         click() {
             window.scrollTo(0, 0);
-        }
+        },
+
+        async getSocials() {
+            const responce = await axios.get('https://www.figleaf.uz/api/v1/socials')
+            this.socials = responce.data;
+            // console.log("Socials data");
+            // console.log(responce.data);
+        },
+
+        async getContacts() {
+            const responce = await axios.get('https://www.figleaf.uz/api/v1/contact')
+            this.contact = responce.data;
+            // console.log("Contacts");
+            // console.log(responce.data);
+        },
+
+        async getCategories() {
+            const responce = await axios.get('https://www.figleaf.uz/api/v1/categories')
+            this.category = responce.data;
+            // console.log("Categories");
+            // console.log(responce.data);
+        },
+    },
+
+    mounted() {
+        this.getSocials();
+        this.getContacts();
+        this.getCategories();
     }
 }
 </script>
@@ -86,6 +121,7 @@ export default {
         font-weight: 400;
         line-height: 150%;
         font-style: normal;
+        white-space: nowrap;
         font-family: 'TT Interfaces';
         color: var(--dark-green, #1D2B1E);
     }

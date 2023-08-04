@@ -14,7 +14,7 @@
                 <NuxtLink to="/contact"><p class="text-18 font-medium leading-150 hidden md:block">{{ $t('contacts') }}</p></NuxtLink>
             </div>
 
-            <div class="flex items-center gap-50">
+            <div class="flex items-center gap-10 md:gap-20 lg:gap-30">
                 <div class="relative">
                     <div class="flex items-center gap-6 cursor-pointer min-w-60" @click="langRef = langRef ? false : true">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -64,21 +64,15 @@ export default {
             this.$i18n.locale = lang;
             localStorage.setItem('language', lang);
         },
-
-        clicked() {
-            console.log("clicked");
-            this.langRef = this.langRef ? false : true;
-            console.log(this.langRef);
-        },
     },
 
     mounted() {
         // console.log("Hello index");
 
-        addEventListener("keydown", (evt) => {
-            console.log(evt.key);
-            console.log("Clicked add event listener");
-        })
+        // addEventListener("keydown", (evt) => {
+        //     console.log(evt.key);
+        //     console.log("Clicked add event listener");
+        // })
     }
 }
 </script>
@@ -92,7 +86,7 @@ export default {
 
 .language_box.active {
     opacity: 1;
-    z-index: 1;
+    z-index: 10;
     transform: translateY(0px);
 }
 

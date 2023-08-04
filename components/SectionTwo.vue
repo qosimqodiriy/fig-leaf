@@ -53,11 +53,12 @@
             <div class="mt-60 md:mt-72 lg:mt-85 xl:mt-100 2xl:mt-120">
                 <p class="text-24 md:text-24 lg:text-26 xl:text-28 2xl:text-32 font-semibold to-black-primary leading-150 mb-15 lg:mb-24">{{ $t('product') }}</p>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-5 gap-y-20">
-                    <NuxtLink :to="{path: '/products', query:{category: 'children'}}" class="block w-full h-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-5 gap-y-10">
+
+                    <NuxtLink v-for="item in Categories" :key="item.id" :to="{path: '/products', query:{category: item.id}}" class="block w-full h-full">
                         <div class="grid_card cursor-pointer w-full h-full border border-gray-secondary bg-white-secondary flex">
-                            <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col">
-                                <p class="text-16 md:text-18 xl:text-20 mb-auto whitespace-nowrap max-w-202 flex-wrap">{{ $t('baby') }}</p>
+                            <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col w-60%">
+                                <p class="text-16 md:text-18 xl:text-20 mb-auto max-w-202 flex-wrap">{{ item.name[$i18n.locale] }}</p>
 
                                 <div class="flex items-center gap-8">
                                     <p class="text-16 md:text-18 font-medium text-green-primary">{{ $t('detail') }}</p>
@@ -66,55 +67,42 @@
                                 </div>
                             </div>
 
-                            <div class="w-full flex justify-end">
-                                <img src="../assets/images/product1.png" alt="product">
+                            <div class="w-40% flex justify-end items-center min-h-180 max-h-200">
+                                <base-image :src="item.image" class="w-full h-full object-cover object-center pr-15" />
                             </div>
                         </div>
-                    </NuxtLink>
-                    
-
-
-                    <NuxtLink :to="{path: '/products', query:{category: 'men'}}" class="block w-full h-full">
-                        <div class="grid_card cursor-pointer w-full h-full border border-gray-secondary bg-white-secondary flex">
-                            <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col">
-                                <p class="text-16 md:text-18 xl:text-20 mb-auto whitespace-nowrap max-w-202 flex-wrap">{{ $t('men') }}</p>
-
-                                <div class="flex items-center gap-8">
-                                    <p class="text-16 md:text-18 font-medium text-green-primary">{{ $t('detail') }}</p>
-
-                                    <img class="arrow_right w-24 h-24" src="../assets/icons/arrow-right-green.png" alt="arrow">
-                                </div>
-                            </div>
-
-                            <div class="w-full flex justify-end">
-                                <img src="../assets/images/product2.png" alt="product">
-                            </div>
-                        </div>
-                    </NuxtLink>
-
-
-                    <NuxtLink :to="{path: '/products', query:{category: 'women'}}" class="block w-full h-full">
-                        <div class="grid_card cursor-pointer w-full h-full border border-gray-secondary bg-white-secondary flex">
-                            <div class="py-20 md:py-24 lg:py-32 px-26 md:px-32 lg:px-40 inline-flex flex-col">
-                                <p class="text-16 md:text-18 xl:text-20 mb-auto whitespace-nowrap max-w-202 flex-wrap">{{ $t('women') }}</p>
-
-                                <div class="flex items-center gap-8">
-                                    <p class="text-16 md:text-18 font-medium text-green-primary">{{ $t('detail') }}</p>
-
-                                    <img class="arrow_right w-24 h-24" src="../assets/icons/arrow-right-green.png" alt="arrow">
-                                </div>
-                            </div>
-
-                            <div class="w-full flex justify-end">
-                                <img src="../assets/images/product3.png" alt="product">
-                            </div>
-                    </div>
                     </NuxtLink>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+
+<script>
+import axios from 'axios'
+
+export default {
+    data() {
+        return {
+            Categories: [],
+        }
+    },
+
+    methods: {
+        async getCategories() {
+            const response = await axios.get('https://www.figleaf.uz/api/v1/categories')
+            this.Categories = response.data;
+            // console.log("Categories");
+            // console.log(response.data);
+        },
+    },
+
+    mounted() {
+        this.getCategories();
+    }
+}
+</script>
 
 
 <style scoped>

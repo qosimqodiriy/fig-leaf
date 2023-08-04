@@ -5,7 +5,7 @@
                 <p class="text-24 lg:text-28 xl:text-32 font-firsNeue mb-24">{{ $t('specialization') }}</p>
 
                 <div class="grid_box flex flex-nowrap gap-16 overflow-x-scroll pb-10">
-                    <SpecializationCard v-for="card in 6" :key="card" :num="card" />
+                    <SpecializationCard v-for="(item, index) in banners" :key="item.id" :item="item" :num="index" />
                 </div>
             </div>
 
@@ -28,19 +28,21 @@ export default {
 
     data() {
         return {
-            list: [],
+            banners: [],
         }
     },
 
     methods: {
-        async getBooks() {
-            const res = await axios.get(`http://207.154.207.34:8083/api/v1/products`)
-            console.log(res.data);
+        async getBanners() {
+            const response = await axios.get('https://www.figleaf.uz/api/v1/banners');
+            this.banners = response.data;
+            // console.log("Banners");
+            // console.log(response.data);
         },
     },
 
     mounted() {
-        this.getBooks();
+        this.getBanners();
     }
 }
 </script>

@@ -4,9 +4,24 @@
         
         <div class="container">
             <div class="my-40 lg:my-60 2xl:my-80 space-y-40">
-                <div class="flex flex-col md:flex-row gap-16 items-start">
-                    <div class="w-full md:w-250 p-15 md:p-18 lg:p-22 xl:p-26 2xl:p-30 shrink-0 space-y-16 border border-gray-secondary">
-                        <div class="tab_box overflow-hidden" :class="tab_1 == true ? 'tab_active' : 'tab_not_active'">
+                <div class="flex flex-col lg:flex-row gap-16 items-start">
+                    <div class="w-full lg:w-250 p-15 md:p-18 lg:p-22 xl:p-26 2xl:p-30 shrink-0 space-y-16 border border-gray-secondary">
+                        <div v-for="(item, index) in category" :key="item.id">
+                            <div class="tab_box overflow-hidden" :class="tab == index + 1 ? `tab_box_${item.id} tab_active` : `tab_box_${item.id} tab_not_active`">
+                                <div class="tab_title flex items-center justify-between gap-10 cursor-pointer"  @click="categoryClick(item.id); tab = tab == index + 1 ? 0 : index + 1">
+                                    <p class="text-18 font-medium font-interfaces">{{ item.name[$i18n.locale] }}</p>
+                                    
+                                    <img class="w-26 h-26" :class="tab == index + 1 ? 'rotate-90' : ''" src="../../assets/icons/arrow-right-s-green.png" alt="">
+                                </div>
+    
+                                <div class="tab_content ml-5 relative py-6 pl-16 space-y-16 mt-16 border-l border-gray-secondary">
+                                    <p v-for="element in item.type" :key="element" @click="typeCllick(element.id)" class="text-18 cursor-pointer font-interfaces">{{ element.name[$i18n.locale] }} {{ element.id }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <!-- <div class="tab_box overflow-hidden" :class="tab_1 == true ? 'tab_active' : 'tab_not_active'">
                             <div class="tab_title flex items-center justify-between gap-10 cursor-pointer"  @click="tab_1 = !tab_1">
                                 <p class="text-18 font-medium font-interfaces">{{ $t('baby') }}</p>
                                 
@@ -43,19 +58,14 @@
                                 <p class="text-18 cursor-pointer font-interfaces">Боксер</p>
                                 <p class="text-18 cursor-pointer font-interfaces">Боксер</p>
                             </div>
-                        </div>
+                        </div> -->
 
 
                     </div>
 
-                    <div class="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-16">
-                        <product-card v-for="card in 5" :key="card" :link="`item_slug`" />
+                    <div class="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-16 w-full">
+                        <product-card v-for="product in products" :key="product.id" :item="product" :link="`item_slug`" />
                     </div>
-                </div>
-
-                <!-- Pagination -->
-                <div>
-
                 </div>
             </div>
         </div>
@@ -64,6 +74,7 @@
 
 
 <script>
+import axios from 'axios'
 import PageTitle from '~/components/PageTitle.vue';
 import ProductCard from '~/components/ProductCard.vue';
 
@@ -77,31 +88,74 @@ export default {
 
     data() {
         return {
-            tabActive: 0,
-            tab_1: false,
-            tab_2: false,
-            tab_3: false,
+            tab: 0,
+            category: [],
+            products: [],
+            categoryList: [],
+            route_type: '',
+            route_category: '',
         }
     },
 
     methods: {
-        clickTab(num) {
-            this.tabActive = num == this.tabActive ? 0 : num;
+        async typeCllick(num) {
+            await this.$router.replace({'query': {'category': this.$route.query.category, 'type': num}});
+            console.log(this.$route.query);
+        },
+
+        async categoryClick(num) {
+            let category = document.querySelector(`.tab_box_${num}`);
+
+            this.categoryList.forEach(category => {
+                category.style.height = category.children[0].offsetHeight + 'px';
+            })
+
+            if(category.classList.contains('tab_active')) {
+                await this.$router.replace(this.$route.path)
+                category.style.height = category?.children[0].clientHeight + "px";
+            } else {
+                await this.$router.replace({'query': {'category': num}});
+                category.style.height = category?.children[0].clientHeight + category?.children[1].clientHeight + 16 + "px";
+            }
+        },
+
+        async getCategories() {
+            const responce = await axios.get('https://www.figleaf.uz/api/v1/categories')
+            this.category = responce.data;
+
+            this.category.forEach(item => {
+                if(item.id == this.$route.query.category){
+                    this.tab = item.id;
+                    setTimeout(() => {
+                        let category = document.querySelector(`.tab_box_${item.id}`);
+                        category.style.height = category.children[0].offsetHeight + category.children[1].offsetHeight + 16 + 'px';
+                    }, 100);
+                }
+            })
+
+            setTimeout(() => {
+                this.categoryList = document.querySelectorAll('.tab_box');
+
+                this.categoryList.forEach(category => {
+                    category.style.height = category.children[0].offsetHeight + 'px';
+                })
+            }, 50);
+        },
+
+        async getProducts() {
+            const responce = await axios.get('https://www.figleaf.uz/api/v1/products', {
+                params: {
+                    // category: this.$route.params.
+                }
+            })
+            console.log(responce.data);
+            this.products = responce.data;
         }
     },
 
     mounted() {
-        console.log("Page ochildi");
-        console.log(this.$route);
-        console.log(this.$router);
-
-        if(this.$route.query.category == "children") {
-            this.tab_1 = true;
-        } else if(this.$route.query.category == "men") {
-            this.tab_2 = true;
-        } else if(this.$route.query.category == "women") {
-            this.tab_3 = true;
-        }
+        this.getProducts();
+        this.getCategories();
     }
 }
 </script>
@@ -117,15 +171,11 @@ export default {
 }
 
 .tab_box.tab_active {
-    /* height: 27px; */
-    max-height: 150px;
-    /* background-color: aqua !important; */
+    /* max-height: 300px; */
 }
 
 .tab_box.tab_not_active {
-    /* height: 27px; */
-    max-height: 27px;
-    /* background-color: rgb(251, 0, 255) !important; */
+    /* max-height: 27px; */
 }
 
 .tab_content::before {
