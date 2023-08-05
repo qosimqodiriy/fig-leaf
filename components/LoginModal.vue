@@ -65,10 +65,29 @@ export default {
             this.phone = '';
             this.$emit('close');
         },
+
+        getGoogleAccounts() {
+            if (chrome.identity) {
+                chrome.identity.getAccounts((accounts) => {
+                if (accounts.length > 0) {
+                    console.log("Existing Google accounts:");
+                    accounts.forEach((account) => {
+                    console.log(account.email);
+                    });
+                } else {
+                    console.log("No Google accounts found.");
+                }
+                });
+            } else {
+                console.log("Chrome Identity API is not available.");
+            }
+        },
+
     },
 
     mounted() {
         this.display = true;
+        this.getGoogleAccounts();
 
         setTimeout(() => {
             let phone = document.getElementById('phone');

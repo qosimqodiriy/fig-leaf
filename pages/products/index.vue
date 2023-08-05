@@ -9,13 +9,13 @@
                         <div v-for="(item, index) in category" :key="item.id">
                             <div class="tab_box overflow-hidden" :class="tab == index + 1 ? `tab_box_${item.id} tab_active` : `tab_box_${item.id} tab_not_active`">
                                 <div class="tab_title flex items-center justify-between gap-10 cursor-pointer"  @click="categoryClick(item.id); tab = tab == index + 1 ? 0 : index + 1">
-                                    <p class="text-18 font-medium font-interfaces">{{ item.name[$i18n.locale] }}</p>
+                                    <p class="text-18 font-medium font-interfaces" :class="route_category == item.id ? 'text-green-primary' : ''">{{ item.name[$i18n.locale] }}</p>
                                     
                                     <img class="w-26 h-26" :class="tab == index + 1 ? 'rotate-90' : ''" src="../../assets/icons/arrow-right-s-green.png" alt="">
                                 </div>
     
                                 <div class="tab_content ml-5 relative py-6 pl-16 space-y-16 mt-16 border-l border-gray-secondary">
-                                    <p v-for="element in item.type" :key="element" @click="typeCllick(element.id)" class="text-18 cursor-pointer font-interfaces">{{ element.name[$i18n.locale] }} {{ element.id }}</p>
+                                    <p v-for="element in item.type" :key="element" @click="typeCllick(element.id)" class="text-18 cursor-pointer font-interfaces" :class="route_type == element.id ? 'text-green-primary' : ''">{{ element.name[$i18n.locale] }} {{ element.id }}</p>
                                 </div>
                             </div>
                         </div>
@@ -99,11 +99,17 @@ export default {
 
     methods: {
         async typeCllick(num) {
+            this.route_type = num;
             await this.$router.replace({'query': {'category': this.$route.query.category, 'type': num}});
             console.log(this.$route.query);
+
+            // u yerda get products qilish kk
+            this.getProducts()
+            console.log(this.route_type);
         },
 
         async categoryClick(num) {
+            this.route_type = '';
             let category = document.querySelector(`.tab_box_${num}`);
 
             this.categoryList.forEach(category => {
@@ -111,11 +117,20 @@ export default {
             })
 
             if(category.classList.contains('tab_active')) {
+                this.route_category = '';
                 await this.$router.replace(this.$route.path)
                 category.style.height = category?.children[0].clientHeight + "px";
+
+                //  Bu yopilish this.getProducts()
+                this.getProducts()
             } else {
+                this.route_category = num;
                 await this.$router.replace({'query': {'category': num}});
                 category.style.height = category?.children[0].clientHeight + category?.children[1].clientHeight + 16 + "px";
+
+                // Bu category ochilish this.getProducts()
+                this.getProducts()
+                console.log(this.route_category);
             }
         },
 
@@ -145,7 +160,8 @@ export default {
         async getProducts() {
             const responce = await axios.get('https://www.figleaf.uz/api/v1/products', {
                 params: {
-                    // category: this.$route.params.
+                    type: this.route_type,
+                    category: this.route_category,
                 }
             })
             console.log(responce.data);

@@ -18,7 +18,7 @@ function OPEN_NOTIFICATION(text: string, type: string) {
             _toast.text = '';
             _toast.type = '';
         }, 300);
-    }, 2500)
+    }, 2000)
 }
 
 export {

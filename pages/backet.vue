@@ -146,8 +146,8 @@ export default {
 
         async createOrder() {
             let name = localStorage.getItem('name');
-            let email = localStorage.getItem('phone');
-            let phone = localStorage.getItem('email');
+            let email = localStorage.getItem('email');
+            let phone = localStorage.getItem('phone');
 
             if(name && email && phone) {
                 this.loading = true;
