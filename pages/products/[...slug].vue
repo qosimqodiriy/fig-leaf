@@ -6,7 +6,6 @@
             <NuxtLink to="/"><p class="text-18 font-interfaces text-gray-text transition-all duration-300 hover:text-black-primary">{{ $t('home') }}</p></NuxtLink>
             <NuxtLink to="/products"><p class="text-18 font-interfaces text-gray-text transition-all duration-300 hover:text-black-primary">/ {{ $t('products') }}</p></NuxtLink>
             <p class="text-18 font-interfaces text-balck-primary">/ {{ product.name[$i18n.locale] }}</p>
-            <p> Test uchun</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-16 lg:gap-24 2xl:gap-30">
@@ -138,6 +137,7 @@ export default {
           console.log("Product bo'sh");
           this.products.push(item);
           console.log(this.products);
+          OPEN_NOTIFICATION("Savatga qo'shildi", 'success');
           localStorage.setItem('products', JSON.stringify(this.products));
         }
       } else {
