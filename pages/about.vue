@@ -1,4 +1,24 @@
 <template>
+    <Head>
+        <Title>Figleaf | About</Title>
+        
+        <meta property="type" content="website">
+        <meta property="og:type" content="website">
+        
+        <meta property="url" content="https://www.figleaf.uz">
+        <meta property="og:url" content="https://www.figleaf.uz">
+        
+        <meta property="image" content="https://www.figleaf.uz/files/images/2023-08-06-15-38-23-505.png">
+        <meta property="og:image" content="https://www.figleaf.uz/files/images/2023-08-06-15-38-23-505.png">
+
+
+        <meta name="keywords" content="Figleaf, Figleaf uz, figleaf, Kiyimlar, Erkaklar kiyimlari, Ayollar kiyimlari, Bolalar kiyimlari">
+        <meta name="og:keywords" content="Figleaf, Figleaf uz, figleaf, Kiyimlar, Erkaklar kiyimlari, Ayollar kiyimlari, Bolalar kiyimlari">
+
+        <Meta name="description" content="Kompaniyaning asosiy faoliyati iste'molchilarning didi va afzalliklariga qaratilgan erkaklar ichki kiyimlarini ishlab chiqarishdir." />
+        <Meta name="og:description" content="Kompaniyaning asosiy faoliyati iste'molchilarning didi va afzalliklariga qaratilgan erkaklar ichki kiyimlarini ishlab chiqarishdir." />
+    </Head>
+
     <div class="py-40">
         <PageTitle :text="$t('informationCompany')" :pageName="$t('aboutUs')" />
         <div class="container">
@@ -54,22 +74,13 @@ import PageTitle from '~/components/PageTitle.vue';
 
 
 export default {
-    head() {
-        return {
-            title: "About Page", // Set the title of the page
-            meta: [
-                { property: "og:title", content: "Open Graph Title" }, // Add Open Graph title meta tag
-            ],
-            link: [
-                { rel: "canonical", href: "https://example.com/about" }, // Add canonical link tag
-            ],
-        };
-    },
-
     components: {
         PageTitle,
     },
 }
+</script>
+<script>
+
 </script>
 
 

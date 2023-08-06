@@ -1,4 +1,23 @@
 <template>
+  <Head>
+      <Title>Figleaf | {{ title }}</Title>
+      
+      <meta property="type" content="website">
+      <meta property="og:type" content="website">
+      
+      <meta name="keywords" :content="keywords">
+      <meta name="og:keywords" :content="keywords">
+
+      <meta property="url" content="https://www.figleaf.uz">
+      <meta property="og:url" content="https://www.figleaf.uz">
+      
+      <meta property="image" content="https://www.figleaf.uz/files/images/2023-08-06-15-38-23-505.png">
+      <meta property="og:image" content="https://www.figleaf.uz/files/images/2023-08-06-15-38-23-505.png">
+      
+      <meta name="description" content="Fig Leafning asosiy maqsadi mijozlar uchun qulaylik yaratishdir" />
+      <meta name="og:description" content="Fig Leafning asosiy maqsadi mijozlar uchun qulaylik yaratishdir" />
+  </Head>
+
   <div class="container">
     <div v-if="product && product.id" class="container_inner max-w-1200 mx-auto py-40 space-y-40 lg:space-y-64">
       <div class="space-y-24">
@@ -108,6 +127,9 @@ export default {
       active: 0,
       product: {},
       products: [],
+
+      title: '',
+      keywords: '',
     }
   },
 
@@ -151,7 +173,12 @@ export default {
       const responce = await axios.get(`https://www.figleaf.uz/api/v1/product/${this.$route.params.slug[0]}`)
       this.product = responce.data;
       // console.log("Product");
-      // console.log(responce.data);
+      console.log(responce.data);
+
+      if(responce && responce.data) {
+        this.title = `${responce.data.name.uz}`
+        this.keywords = `${responce.data.name.uz}, ${responce.data.name.ru}, ${responce.data.name.eng}`
+      }
     },
 
     formatPrice(price) {
