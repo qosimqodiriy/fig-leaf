@@ -2,18 +2,16 @@
 export default defineNuxtConfig({
   ssr: true,
 
-  head: {
-    title: 'my website title',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'my website description'
-      }
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  head() {
+    return {
+      title: "Figleaf Index page", // Set the title of the page
+      meta: [
+        { property: "og:title", content: "Open Graph Title" }, // Add Open Graph title meta tag
+      ],
+      link: [
+        // { rel: "canonical", href: "https://example.com/about" }, // Add canonical link tag
+      ],
+    };
   },
 
   

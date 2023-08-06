@@ -6,6 +6,7 @@
             <NuxtLink to="/"><p class="text-18 font-interfaces text-gray-text transition-all duration-300 hover:text-black-primary">{{ $t('home') }}</p></NuxtLink>
             <NuxtLink to="/products"><p class="text-18 font-interfaces text-gray-text transition-all duration-300 hover:text-black-primary">/ {{ $t('products') }}</p></NuxtLink>
             <p class="text-18 font-interfaces text-balck-primary">/ {{ product.name[$i18n.locale] }}</p>
+            <p> Test uchun</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-16 lg:gap-24 2xl:gap-30">
@@ -114,7 +115,8 @@ export default {
   methods: {
     addBacket(item) {
       if(this.product.size != null) {
-        if(localStorage.getItem('products')) {
+        if(localStorage.getItem('products') && localStorage.getItem('products') != null && localStorage.getItem('products') != undefined) {
+          console.log("Product bor");
           let bool = true;
           this.products = JSON.parse(localStorage.getItem('products'));
   
@@ -133,7 +135,9 @@ export default {
             OPEN_NOTIFICATION('Bu mahsulot savatda bor', 'varning');
           }
         } else {
+          console.log("Product bo'sh");
           this.products.push(item);
+          console.log(this.products);
           localStorage.setItem('products', JSON.stringify(this.products));
         }
       } else {
