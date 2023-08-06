@@ -54,6 +54,18 @@ import PageTitle from '~/components/PageTitle.vue';
 
 
 export default {
+    head() {
+        return {
+            title: "About Page", // Set the title of the page
+            meta: [
+                { property: "og:title", content: "Open Graph Title" }, // Add Open Graph title meta tag
+            ],
+            link: [
+                { rel: "canonical", href: "https://example.com/about" }, // Add canonical link tag
+            ],
+        };
+    },
+
     components: {
         PageTitle,
     },

@@ -80,6 +80,17 @@ import ProductCard from '~/components/ProductCard.vue';
 
 
 export default {
+    head() {
+        return {
+            title: "My title",
+            meta: [
+                { charset: 'utf-8' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                { hid: 'og-type', property: 'og:type', content: 'website' },
+            ]
+        }
+    },
+
     components: {
         PageTitle,
         ProductCard,
@@ -101,11 +112,7 @@ export default {
         async typeCllick(num) {
             this.route_type = num;
             await this.$router.replace({'query': {'category': this.$route.query.category, 'type': num}});
-            console.log(this.$route.query);
-
-            // u yerda get products qilish kk
             this.getProducts()
-            console.log(this.route_type);
         },
 
         async categoryClick(num) {
@@ -121,16 +128,13 @@ export default {
                 await this.$router.replace(this.$route.path)
                 category.style.height = category?.children[0].clientHeight + "px";
 
-                //  Bu yopilish this.getProducts()
                 this.getProducts()
             } else {
                 this.route_category = num;
                 await this.$router.replace({'query': {'category': num}});
                 category.style.height = category?.children[0].clientHeight + category?.children[1].clientHeight + 16 + "px";
 
-                // Bu category ochilish this.getProducts()
                 this.getProducts()
-                console.log(this.route_category);
             }
         },
 

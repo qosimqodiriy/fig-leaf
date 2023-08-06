@@ -107,6 +107,7 @@ export default {
     return {
       active: 0,
       product: {},
+      products: [],
     }
   },
 

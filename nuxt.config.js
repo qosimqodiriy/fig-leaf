@@ -2,6 +2,20 @@
 export default defineNuxtConfig({
   ssr: true,
 
+  head: {
+    title: 'my website title',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'my website description'
+      }
+    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  },
+
   
   css: [
     '@/assets/css/main.css',
@@ -13,9 +27,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
   ],
 
-  plugins: [
-    // '~/plugins/getAPI.js',
-  ],
+  plugins: [],
 
   compilerOptions: {
     paths: {
@@ -26,7 +38,6 @@ export default defineNuxtConfig({
 
   axios: {
     baseURL: 'https://mediasaboq.uz/api/v1',
-    // baseURL: 'http://207.154.207.34:8083/api/v1/',
   },
 
   env: {
