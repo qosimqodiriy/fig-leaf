@@ -10,7 +10,10 @@
             </div>
 
 
-            <NasipaCard />
+            <div class="">
+                <NasipaCard />
+                <contact-box />
+            </div>
         </div>
     </div>
 </template>

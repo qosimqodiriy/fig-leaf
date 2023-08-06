@@ -115,7 +115,6 @@ export default {
     addBacket(item) {
       if(this.product.size != null) {
         if(localStorage.getItem('products') && localStorage.getItem('products') != null && localStorage.getItem('products') != undefined) {
-          console.log("Product bor");
           let bool = true;
           this.products = JSON.parse(localStorage.getItem('products'));
   
@@ -134,9 +133,8 @@ export default {
             OPEN_NOTIFICATION('Bu mahsulot savatda bor', 'varning');
           }
         } else {
-          console.log("Product bo'sh");
+          item.count = 10;
           this.products.push(item);
-          console.log(this.products);
           OPEN_NOTIFICATION("Savatga qo'shildi", 'success');
           localStorage.setItem('products', JSON.stringify(this.products));
         }

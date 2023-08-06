@@ -39,7 +39,7 @@
                             <p><a href="tel:+998971811112" class="footer_text">{{ contact.phone2 }}</a></p>
                         </div>
                         <p><a href="mailto:figleaftextile@gmail.com" class="footer_text">{{ contact.email }}</a></p>
-                        <p><a :href="`https://yandex.uz/maps/10335/tashkent/?ll=${contact.long}%2C${contact.lat}&mode=whatshere&whatshere%5Bpoint%5D=${contact.long}%2C${contact.lat}&whatshere%5Bzoom%5D=17&z=17.62`" target="_blank" class="whitespace-normal">{{ contact.address && contact.address[$i18n.locale] ? contact.address[$i18n.locale] : 'Тошкент вилояти, Зангиота тумани, Эшонгузар қўрғони, Охунбобев кўчаси 1-a уй' }}</a></p>
+                        <p><a :href="`https://yandex.uz/maps/10335/tashkent/?ll=${contact.long}%2C${contact.lat}&mode=whatshere&whatshere%5Bpoint%5D=${contact.long}%2C${contact.lat}&whatshere%5Bzoom%5D=17&z=17`" target="_blank" class="whitespace-normal">{{ contact.address && contact.address[$i18n.locale] ? contact.address[$i18n.locale] : 'Тошкент вилояти, Зангиота тумани, Эшонгузар қўрғони, Охунбобев кўчаси 1-a уй' }}</a></p>
                     </div>
                 </div>
             </div>

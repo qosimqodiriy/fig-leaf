@@ -1,7 +1,8 @@
 <template>
     <div class="py-40">
         <PageTitle :text="$t('contact')" :pageName="$t('contacts')" />
-        <div class="container">
+        <contact-box />
+        <!-- <div class="container">
             <div class="grid lg:grid-cols-3 gap-10 md:gap-16 py-40 lg:pt-60 xl:pt-80">
                 <a class="w-full lg:col-span-2" href="https://yandex.uz/maps/10335/tashkent/?ll=69.146134%2C41.253285&mode=whatshere&whatshere%5Bpoint%5D=69.145321%2C41.253183&whatshere%5Bzoom%5D=17&z=17.62" target="_blank">
                     <img class="w-full h-full object-cover object-center" src="../assets/images/map.png" alt="">
@@ -26,7 +27,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
