@@ -19,8 +19,8 @@
     </Head>
 
     <SectionOne />
-    <SectionTwo />
-    <SectionThree />
+    <SectionTwo :image_list="data" />
+    <SectionThree :img="data.image3" />
 </template>
 
 <script>
@@ -41,16 +41,23 @@ export default {
         ContactBox,
     },
 
+    data() {
+        return {
+            data: {},
+        }
+    },
+
     methods: {
-        async getBooks() {
-            const res = await axios.get(`https://mediasaboq.uz/api/v1/books`)
-            console.log(res.data);
-            console.log("Response");
+        async getImages() {
+            const response = await axios.get('https://www.figleaf.uz/api/v1/image');
+            this.data = response.data;
+            console.log(response.data);
+            console.log("Image");
         },
     },
 
     mounted() {
-        // console.log("Hello index");
+        this.getImages();
     }
 }
 </script>

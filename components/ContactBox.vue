@@ -5,7 +5,8 @@
                 <!-- <a class="w-full lg:col-span-2" href="https://yandex.uz/maps/10335/tashkent/?ll=69.146134%2C41.253285&mode=whatshere&whatshere%5Bpoint%5D=69.145321%2C41.253183&whatshere%5Bzoom%5D=17&z=17.62" target="_blank"> -->
                 <!-- <a class="w-full lg:col-span-2" :href="`https://yandex.uz/maps/10335/tashkent/?ll=69.144706%2C41.252737&mode=whatshere&whatshere%5Bpoint%5D=69.144706%2C41.252737&whatshere%5Bzoom%5D=17&z=17`" target="_blank"> -->
                 <a class="w-full lg:col-span-2" :href="`https://yandex.uz/maps/10335/tashkent/?ll=${data.long}%2C${data.lat}&mode=whatshere&whatshere%5Bpoint%5D=${data.long}%2C${data.lat}&whatshere%5Bzoom%5D=17&z=17`" target="_blank">
-                    <img class="w-full h-full object-cover object-center" src="../assets/images/map.png" alt="">
+                    <img class="w-full h-full object-cover object-center" src="../assets/images/map.jpg" alt="">
+                    <!-- <img class="w-full h-full object-cover object-center" src="../assets/images/map.png" alt=""> -->
                 </a>
 
                 <form @submit.prevent="submit" class="p-20 md:p-24 lg:p-28 xl:p-32 2xl:p-40 border border-gray-secondary">

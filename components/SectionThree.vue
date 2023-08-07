@@ -11,7 +11,7 @@
 
 
             <div class="">
-                <NasipaCard />
+                <NasipaCard :bg_img="img" />
                 <contact-box />
             </div>
         </div>
@@ -26,6 +26,13 @@ import SpecializationCard from './SpecializationCard.vue';
 export default {
     components: {
         SpecializationCard,
+    },
+
+    props: {
+        img: {
+            type: String,
+            required: true,
+        },
     },
 
 

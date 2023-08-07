@@ -30,10 +30,12 @@
                     </div>
 
                     <div class="card w-full h-full flex border border-gray-secondary overflow-hidden">
-                        <img class="card_img w-full h-full object-cover" src="../assets/images/img1.png" alt="fig-leaf team">
+                        <base-image :src="image_list.image1" class="card_img w-full h-full object-cover" />
+                        <!-- <img class="card_img w-full h-full object-cover" src="../assets/images/img1.png" alt="fig-leaf team"> -->
                     </div>
                     <div class="card w-full h-full flex border border-gray-secondary overflow-hidden">
-                        <img class="card_img w-full h-full object-cover" src="../assets/images/img2.png" alt="fig-leaf team">
+                        <base-image :src="image_list.image2" class="card_img w-full h-full object-cover" />
+                        <!-- <img class="card_img w-full h-full object-cover" src="../assets/images/img2.png" alt="fig-leaf team"> -->
                     </div>
 
                     <div class="w-full h-full flex flex-col items-center p-10 md:p-16 py-30 border border-gray-secondary">
@@ -46,8 +48,6 @@
                     </div>
                 </div>
             </div>
-
-
 
 
             <div class="mt-60 md:mt-72 lg:mt-85 xl:mt-100 2xl:mt-120">
@@ -81,12 +81,21 @@
 
 <script>
 import axios from 'axios'
+import BaseImage from './BaseImage.vue'
 
 export default {
+  components: { BaseImage },
     data() {
         return {
             Categories: [],
         }
+    },
+
+    props: {
+        image_list: {
+            type: Object,
+            required: true,
+        },
     },
 
     methods: {

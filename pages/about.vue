@@ -47,16 +47,16 @@
                 <p class="text-18 font-interfaces">{{ $t('text8') }}</p>
                 <div class="grid grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 my-30 lg:my-40">
                     <div class="w-full min-h-180 lg:min-h-270 col-span-2 lg:col-span-1 row-span-2">
-                        <img class="w-full h-full object-cover object-center" src="../assets/images/team1.png" alt="">
+                        <base-image :src="data.image4" class="w-full h-full object-cover object-center" />
                     </div>
                     <div class="w-full min-h-180 lg:min-h-270 col-span-2">
-                        <img class="w-full h-full object-cover object-center" src="../assets/images/team2.png" alt="">
+                        <base-image :src="data.image5" class="w-full h-full object-cover object-center" />
                     </div>
                     <div class="w-full min-h-180 lg:min-h-270">
-                        <img class="w-full h-full object-cover object-center" src="../assets/images/team3.png" alt="">
+                        <base-image :src="data.image6" class="w-full h-full object-cover object-center" />
                     </div>
                     <div class="w-full min-h-180 lg:min-h-270">
-                        <img class="w-full h-full object-cover object-center" src="../assets/images/team4.png" alt="">
+                        <base-image :src="data.image7" class="w-full h-full object-cover object-center" />
                     </div>
                 </div>
                 <p class="text-18 font-interfaces">Торговая марка AMINA™ начала свой путь с 1995 года. На сегодняшний день наша компания достигла значительных успехов: AMINA™- это состоявшийся бренд, который представлен коллекциями мужского нижнего белья. Отличительной особенностью нашей компании является то, что мы осуществляем весь спектр работ, начиная от производства трикотажного полотна и заканчивая реализацией готовой продукции. В нашем ассортименте нижнего белья Вы всегда найдете всё, что нужно современному мужчине: майки, безрукавки, трусов различных видов и многое другое. Они эстетичны, удобны и изготовлены из натурального хлопка.</p>
@@ -70,6 +70,7 @@
 
 
 <script>
+import axios from 'axios'
 import PageTitle from '~/components/PageTitle.vue';
 
 
@@ -77,10 +78,24 @@ export default {
     components: {
         PageTitle,
     },
-}
-</script>
-<script>
 
+    data() {
+        return {
+            data: {},
+        }
+    },
+
+    methods: {
+        async getImages() {
+            const response = await axios.get('https://www.figleaf.uz/api/v1/image');
+            this.data = response.data;
+        },
+    },
+
+    mounted() {
+        this.getImages();
+    }
+}
 </script>
 
 
@@ -88,10 +103,6 @@ export default {
     .nasipa {
         font-size: 120px;
         color: rgb(56, 255, 45);
-    }
-    .section_two {
-        background: url('../assets/images/bg.png') no-repeat center center;
-        background-size: cover;
     }
 
 
