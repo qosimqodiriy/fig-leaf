@@ -13,10 +13,6 @@
         <div class="flex items-center justify-center flex-1 w-full relative bg-white-primary">
             <base-image v-if="item && item.image" :src="item && item.image ? item.image : ''" class="w-full max-w-full px-20 lg:px-30 py-15 lg:py-20" />
             <img v-else class="w-full max-w-full px-20 lg:px-30 py-15 lg:py-20" src="../assets/images/product_img_3.png" alt="">
-
-            <!-- <div @click="addBacket(item)" class="absolute top-0 right-0 -translate-x-50% -translate-y-50% w-56 h-56 flex items-center justify-center rounded-full border border-gray-secondary bg-white-primary cursor-pointer">
-                <img class="w-24 h-24" src="../assets/images/basket.png" alt="">
-            </div> -->
         </div>
     </NuxtLink>
 </template>

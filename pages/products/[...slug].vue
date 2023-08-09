@@ -66,7 +66,7 @@
                 <p v-for="item in product.sizes" :key="item" @click="sizeClick(item)" class="text-18 px-18 py-10 lg:px-24 lg:py-16 rounded-30 border cursor-pointer" :class="product.size && product.size.id == item.id ? 'border-colour-green text-colour-green text_shadow' : 'border-gray-secondary text-black-primary'">{{ item.name }}</p>
               </div>
 
-              <p class="text-22 md:text-24 lg:text-26 xl:text-28 font-medium mb-16">{{ formatPrice('234324') }} sum</p>
+              <p class="text-22 md:text-24 lg:text-26 xl:text-28 font-medium mb-16">{{ formatPrice(product.price) }} sum</p>
 
               <div class="flex items-center justify-center cursor-pointer gap-24 py-10 lg:py-16 bg-green-secondary" @click="addBacket(product)">
                 <p class="text-14 font-semibold uppercase text-black-primary font-firsNeue">{{ $t('backet') }}</p>
@@ -172,8 +172,6 @@ export default {
     async getProduct() {
       const responce = await axios.get(`https://www.figleaf.uz/api/v1/product/${this.$route.params.slug[0]}`)
       this.product = responce.data;
-      // console.log("Product");
-      console.log(responce.data);
 
       if(responce && responce.data) {
         this.title = `${responce.data.name.uz}`
@@ -212,7 +210,8 @@ export default {
 
 
 
-<style scoped>* {
+<style scoped>
+* {
   transition: 0.37s;
 }
 
@@ -227,4 +226,5 @@ export default {
 
 .container_inner {
   max-width: 1400px !important;
-}</style>
+}
+</style>

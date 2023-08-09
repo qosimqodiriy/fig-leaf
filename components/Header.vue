@@ -65,15 +65,6 @@ export default {
             localStorage.setItem('language', lang);
         },
     },
-
-    mounted() {
-        // console.log("Hello index");
-
-        // addEventListener("keydown", (evt) => {
-        //     console.log(evt.key);
-        //     console.log("Clicked add event listener");
-        // })
-    }
 }
 </script>
 

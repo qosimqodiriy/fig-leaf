@@ -31,11 +31,9 @@
 
                     <div class="card w-full h-full flex border border-gray-secondary overflow-hidden">
                         <base-image :src="image_list.image1" class="card_img w-full h-full object-cover" />
-                        <!-- <img class="card_img w-full h-full object-cover" src="../assets/images/img1.png" alt="fig-leaf team"> -->
                     </div>
                     <div class="card w-full h-full flex border border-gray-secondary overflow-hidden">
                         <base-image :src="image_list.image2" class="card_img w-full h-full object-cover" />
-                        <!-- <img class="card_img w-full h-full object-cover" src="../assets/images/img2.png" alt="fig-leaf team"> -->
                     </div>
 
                     <div class="w-full h-full flex flex-col items-center p-10 md:p-16 py-30 border border-gray-secondary">
@@ -102,8 +100,6 @@ export default {
         async getCategories() {
             const response = await axios.get('https://www.figleaf.uz/api/v1/categories')
             this.Categories = response.data;
-            // console.log("Categories");
-            // console.log(response.data);
         },
     },
 

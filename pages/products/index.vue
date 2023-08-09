@@ -38,48 +38,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        
-                        <!-- <div class="tab_box overflow-hidden" :class="tab_1 == true ? 'tab_active' : 'tab_not_active'">
-                            <div class="tab_title flex items-center justify-between gap-10 cursor-pointer"  @click="tab_1 = !tab_1">
-                                <p class="text-18 font-medium font-interfaces">{{ $t('baby') }}</p>
-                                
-                                <img class="w-26 h-26" :class="tab_1 == true ? 'rotate-90' : ''" src="../../assets/icons/arrow-right-s-green.png" alt="">
-                            </div>
-
-                            <div class="tab_content ml-5 relative py-6 pl-16 space-y-16 mt-16 border-l border-gray-secondary">
-                                <p class="text-18 cursor-pointer font-interfaces">Боксер</p>
-                                <p class="text-18 cursor-pointer font-interfaces">Боксер</p>
-                            </div>
-                        </div>
-
-                        <div class="tab_box overflow-hidden" :class="tab_2 == true ? 'tab_active' : 'tab_not_active'">
-                            <div class="tab_title flex items-center justify-between gap-10 cursor-pointer"  @click="tab_2 = !tab_2">
-                                <p class="text-18 font-medium font-interfaces">{{ $t('men') }}</p>
-                                
-                                <img class="w-26 h-26" :class="tab_2 == true ? 'rotate-90' : ''" src="../../assets/icons/arrow-right-s-green.png" alt="">
-                            </div>
-
-                            <div class="tab_content ml-5 relative py-6 pl-16 space-y-16 mt-16 border-l border-gray-secondary">
-                                <p class="text-18 cursor-pointer font-interfaces">Боксер</p>
-                                <p class="text-18 cursor-pointer font-interfaces">Боксер</p>
-                            </div>
-                        </div>
-
-                        <div class="tab_box overflow-hidden" :class="tab_3 == true ? 'tab_active' : 'tab_not_active'">
-                            <div class="tab_title flex items-center justify-between gap-10 cursor-pointer"  @click="tab_3 = !tab_3">
-                                <p class="text-18 font-medium font-interfaces">{{ $t('women') }}</p>
-                                
-                                <img class="w-26 h-26" :class="tab_3 == true ? 'rotate-90' : ''" src="../../assets/icons/arrow-right-s-green.png" alt="">
-                            </div>
-
-                            <div class="tab_content ml-5 relative py-6 pl-16 space-y-16 mt-16 border-l border-gray-secondary">
-                                <p class="text-18 cursor-pointer font-interfaces">Боксер</p>
-                                <p class="text-18 cursor-pointer font-interfaces">Боксер</p>
-                            </div>
-                        </div> -->
-
-
                     </div>
 
                     <div class="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-16 w-full">
@@ -187,7 +145,6 @@ export default {
                     category: this.route_category,
                 }
             })
-            console.log(responce.data);
             this.products = responce.data;
         }
     },

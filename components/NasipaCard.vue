@@ -36,7 +36,6 @@ export default {
         async getImages() {
             const response = await axios.get('https://www.figleaf.uz/api/v1/image');
             this.data = response.data;
-            console.log(response.data);
         },
     },
 

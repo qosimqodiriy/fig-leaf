@@ -24,8 +24,6 @@
             <div v-if="products && products.length > 0" class="grid md:grid-cols-2 lg:grid-cols-3 items-start gap-6 py-40 md:py-50 lg:py-60 xl:py-70">
                 <!-- Mahsulotlar ro'yxati -->
                 <div class="space-y-15 p-20 md:p-24 lg:p-28 xl:p-32 border border-gray-secondary lg:col-span-2">
-                    <!-- <basket-item v-for="item in products" :key="item.id" :item="item" /> -->
-
                     <div v-for="(item, index) in products" :key="item.id">
                         <div class="card pb-15 flex flex-col xl:flex-row items-start xl:items-center justify-between gap-24">
                             <div class="flex flex-col lg:flex-row items-start lg:items-center justify-start gap-16 lg:justify-between w-full max-w-600">
@@ -48,7 +46,6 @@
                                 <div class="flex items-center ml-auto lg:ml-0 gap-5 border border-gray-secondary p-4">
                                     <img @click="minus(index, item)" class="w-30 h-30 p-3 cursor-pointer hover:bg-white-secondary transition-all duration-300" src="../assets/icons/minus-black.png" alt="">
                                     <p class="text-18 text-center w-60">{{ item.count }}</p>
-                                    <!-- <input type="number" v-model="item.count" class="text-18 text-center w-80 border-none outline-none" /> -->
                                     <img @click="plus(index, item)" class="w-30 h-30 p-3 cursor-pointer hover:bg-white-secondary transition-all duration-300" src="../assets/icons/add-black.png" alt="">
                                 </div>
                             </div>

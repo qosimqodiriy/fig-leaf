@@ -76,22 +76,16 @@ export default {
         async getSocials() {
             const responce = await axios.get('https://www.figleaf.uz/api/v1/socials')
             this.socials = responce.data;
-            // console.log("Socials data");
-            // console.log(responce.data);
         },
 
         async getContacts() {
             const responce = await axios.get('https://www.figleaf.uz/api/v1/contact')
             this.contact = responce.data;
-            // console.log("Contacts");
-            // console.log(responce.data);
         },
 
         async getCategories() {
             const responce = await axios.get('https://www.figleaf.uz/api/v1/categories')
             this.category = responce.data;
-            // console.log("Categories");
-            // console.log(responce.data);
         },
     },
 

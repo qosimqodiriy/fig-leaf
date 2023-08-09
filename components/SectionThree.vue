@@ -46,8 +46,6 @@ export default {
         async getBanners() {
             const response = await axios.get('https://www.figleaf.uz/api/v1/banners');
             this.banners = response.data;
-            // console.log("Banners");
-            // console.log(response.data);
         },
     },
 

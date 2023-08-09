@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <div class="container h-full flex flex-col relative">
+        <div v-if="video" class="container h-full flex flex-col relative">
             <div class="lg:absolute top-0 left-0 2xl:relative w-full md:px-15 lg:px-50 2xl:px-0">
                 <div class="top grid grid-cols-1 lg:grid-cols-5 py-30 md:py-36 lg:py-40 xl:py-44 gap-20 md:gap-30 lg:gap-42 xl:gap-50 h-full">
                     <div class="lg:col-span-3">
@@ -20,12 +20,35 @@
             </div>
 
             <div class="bottom w-full h-full overflow-hidden">
-                <video class="w-full h-full object-cover object-center" src="../assets/videos/background.mp4" autoplay muted loop></video>
+                <video v-if="video" class="w-full h-full object-cover object-center" :src="`https://www.figleaf.uz/files/${video}`" autoplay muted loop></video>
             </div>
         </div>
     </div>
 </template>
 
+
+<script>
+import axios from 'axios'
+
+export default {
+    data() {
+        return {
+            video: '',
+        }
+    },
+
+    methods: {
+        async getVideo() {
+            const response = await axios.get('https://www.figleaf.uz/api/v1/video')
+            this.video = response.data.video;
+        },
+    },
+
+    mounted() {
+        this.getVideo();
+    }
+}
+</script>
 
 <style scoped>
     .main {
