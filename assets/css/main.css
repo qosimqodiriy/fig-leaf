@@ -4,6 +4,11 @@
 
 
 @font-face {
+    font-family: 'Inter';
+    src: local('Inter'), url('../fonts/Inter.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'Bebas Neue';
     src: local('Bebas Neue'), url('../fonts/Bebas-Neue.ttf') format('truetype');
 }
@@ -19,6 +24,10 @@
 }
 
 
+.router-link-active{
+    color: #1878F3;
+    font-weight: 500;
+}
 
 
 
@@ -31,4 +40,17 @@ input[type="number"],
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     -moz-appearance: textfield;
+}
+
+/* ::-webkit-scrollbar {
+    background-color: red;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: blue;
+} */
+
+.scroll_none::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }

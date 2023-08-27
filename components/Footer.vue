@@ -1,56 +1,54 @@
 <template>
-    <div class="py-24 bg-white-secondary">
-        <div class="container">
-            <div class="flex flex-col lg:flex-row items-start justify-between gap-80">
-                <div class="">
-                    <NuxtLink to="/" @click="click()">
-                        <div class="max-w-90 lg:max-w-120 mb-60">
-                            <img src="../assets/images/Logo.png" alt="">
-                        </div>
-                    </NuxtLink>
-
-                    <div class="flex items-center flex-wrap gap-15 md:gap-18 xl:gap-24">
-                        <a v-for="social in socials" :key="social.id" :href="social.url" target="_blank"><base-image class="w-30 h-30 cursor-pointer" :src="social.icon" /></a>
-                    </div>
+    <footer class="bg-black">
+        <div class="my_container py-20 md:py-24 lg:py-30 xl:py-40">
+            <div class="flex flex-wrap gap-40 gap-y-24 mb-40 lg:mb-60">
+                <div class="flex items-center gap-2">
+                    <img class="w-68" src="../assets/images/logo_img.gif" alt="">
+                    <img class="w-78" src="../assets/images/logo_name.png" alt="">
                 </div>
 
+                <p v-for="item in 5" :key="item" class="p-10 px-24 lg:px-32 text-white text-20 font-medium font-interfaces border border-grey_8">Modern City</p>
+            </div>
 
-                <div class="flex flex-col md:flex-row gap-80 md:gap-100 lg:gap-120 xl:gap-150">
-                    <div class="space-y-24 max-w-400">
-                        <p class="footer_title">{{ $t('products') }}</p>
-
-                        <NuxtLink v-for="item in category" :key="item.id" :to="{path: '/products', query:{category: item.id}}" class="footer_text">{{ item.name[$i18n.locale] }}</NuxtLink>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-40 mb-16">
+                <div class="py-24 border-y border-grey_border">
+                    <div class="flex items-center gap-24 mb-24">
+                        <img class="w-40 h-40" src="../assets/icons/Location.png" alt="">
+                        <p class="text-white text-24 font-inter font-medium leading-140">Адресс</p>
                     </div>
-
-
-                    <div class="space-y-24 max-w-400">
-                        <p class="footer_title">{{ $t('company') }}</p>
-
-                        <NuxtLink to="/about" class="footer_text">{{ $t('aboutUs') }}</NuxtLink>
-                        <NuxtLink to="/contact" class="footer_text">{{ $t('contacts') }}</NuxtLink>
+                    <p class="text-18 font-inter text-grey_40">Республика Узбекистан. Ташкентская обл. Зангиота р-н КФЙ Эркин, Кольцевая дорога Ташкент-Термиз М-39 .</p>
+                </div>
+                <div class="py-24 border-y border-grey_border">
+                    <div class="flex items-center gap-24 mb-24">
+                        <img class="w-40 h-40" src="../assets/icons/Call.png" alt="">
+                        <p class="text-white text-24 font-inter font-medium leading-140">Тел/Факс:</p>
                     </div>
-
-
-                    <div class="space-y-24 max-w-400">
-                        <p class="footer_title">{{ $t('contact') }}</p>
-
-                        <div class="flex flex-wrap items-center gap-24">
-                            <p><a href="tel:+998971811112" class="footer_text">{{ contact.phone }}</a></p>
-                            <p><a href="tel:+998971811112" class="footer_text">{{ contact.phone2 }}</a></p>
-                        </div>
-                        <p><a href="mailto:figleaftextile@gmail.com" class="footer_text">{{ contact.email }}</a></p>
-                        <p><a :href="`https://yandex.uz/maps/10335/tashkent/?ll=${contact.long}%2C${contact.lat}&mode=whatshere&whatshere%5Bpoint%5D=${contact.long}%2C${contact.lat}&whatshere%5Bzoom%5D=17&z=17`" target="_blank" class="whitespace-normal">{{ contact.address && contact.address[$i18n.locale] ? contact.address[$i18n.locale] : 'Тошкент вилояти, Зангиота тумани, Эшонгузар қўрғони, Охунбобев кўчаси 1-a уй' }}</a></p>
+                    <div class="flex flex-wrap items-center gap-24">
+                        <p class="text-18 font-inter text-grey_40">(+998 90) 992 17 77</p>
+                        <p class="text-18 font-inter text-grey_40">(0 371) 150 62 74</p>
+                    </div>
+                </div>
+                <div class="py-24 border-y border-grey_border">
+                    <div class="flex items-center gap-24 mb-24">
+                        <img class="w-40 h-40" src="../assets/icons/Message.png" alt="">
+                        <p class="text-white text-24 font-inter font-medium leading-140">Социальные медиа</p>
+                    </div>
+                    <div class="flex items-center gap-20 md:gap-24 lg:gap-30 xl:gap-40">
+                        <img class="w-32 h-32" v-for="item in 4" :key="item" src="../assets/icons/youtube.png" alt="">
                     </div>
                 </div>
             </div>
 
-            <hr class="border border-gray-secondary my-24">
+            <div class="flex items-center justify-between gap-40 gap-y-20 flex-wrap">
+                <p class="text-18 font-inter text-white">© 2023 JAHON INVEST PLAST</p>
 
-            <div>
-                <p class="text-18 leading-150 text-black-secondary">{{ $t('copyText') }}</p>
+                <div class="flex items-center gap-3">
+                    <p class="text-18 font-interfaces font-medium text-grey_40">Design by</p>
+                    <p class="text-18 font-interfaces font-medium text-white">Mazmoon Group</p>
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
 </template>
 
 
@@ -62,9 +60,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            contact: {},
             socials: [],
-            category: [],
         }
     },
 
@@ -77,22 +73,10 @@ export default {
             const responce = await axios.get('https://www.figleaf.uz/api/v1/socials')
             this.socials = responce.data;
         },
-
-        async getContacts() {
-            const responce = await axios.get('https://www.figleaf.uz/api/v1/contact')
-            this.contact = responce.data;
-        },
-
-        async getCategories() {
-            const responce = await axios.get('https://www.figleaf.uz/api/v1/categories')
-            this.category = responce.data;
-        },
     },
 
     mounted() {
         this.getSocials();
-        this.getContacts();
-        this.getCategories();
     }
 }
 </script>

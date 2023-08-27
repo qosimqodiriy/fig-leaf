@@ -4,9 +4,9 @@ export default defineNuxtConfig({
 
   head() {
     return {
-      title: "Figleaf Index page", // Set the title of the page
+      title: "Jahon Invest Holding", // Set the title of the page
       meta: [
-        { property: "og:title", content: "Open Graph Title" }, // Add Open Graph title meta tag
+        { property: "og:title", content: "Jahon Invest Holding" }, // Add Open Graph title meta tag
       ],
       link: [
         // { rel: "canonical", href: "https://example.com/about" }, // Add canonical link tag
@@ -29,8 +29,8 @@ export default defineNuxtConfig({
 
   compilerOptions: {
     paths: {
-      "~/*": ["./*"],
-      "@/*": ["./*"]
+      "~/*": ["./**/**"],
+      "@/*": ["./**/**"]
     },
   },
 

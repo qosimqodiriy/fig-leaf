@@ -1,14 +1,16 @@
 * {
     margin: 0;
     padding: 0;
+    /* transition: 0.37s; */
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
-.container {
+.my_container {
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     padding: 0 15px;
-    max-width: 1707px;
-    width: 100% !important;
+    max-width: 1700px;
     /* background-color: aqua !important; */
 }

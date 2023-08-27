@@ -18,27 +18,23 @@
         <meta name="og:keywords" content="Figleaf, Figleaf uz, figleaf, Kiyimlar, Erkaklar kiyimlari, Ayollar kiyimlari, Bolalar kiyimlari">
     </Head>
 
-    <SectionOne />
-    <SectionTwo :image_list="data" />
-    <SectionThree :img="data.image3" />
+    <section-one />
+    <section-two color="black" bg_color="white" />
+    <section-three />
 </template>
 
 <script>
 import axios from 'axios'
-import Maps from '~/components/Maps.vue'
-import SectionOne from '~/components/SectionOne.vue';
-import SectionTwo from '~/components/SectionTwo.vue';
-import SectionThree from '~/components/SectionThree.vue';
-import ContactBox from '~/components/ContactBox.vue';
+import SectionOne from '~/components/index/SectionOne.vue'
+import SectionTwo from '~/components/index/SectionTwo.vue'
+import SectionThree from '~/components/index/SectionThree.vue'
 
 export default {
 
     components: {
-        Maps,
         SectionOne,
         SectionTwo,
         SectionThree,
-        ContactBox,
     },
 
     data() {
@@ -48,14 +44,14 @@ export default {
     },
 
     methods: {
-        async getImages() {
-            const response = await axios.get('https://www.figleaf.uz/api/v1/image');
-            this.data = response.data;
-        },
+        // async getImages() {
+        //     const response = await axios.get('https://www.figleaf.uz/api/v1/image');
+        //     this.data = response.data;
+        // },
     },
 
     mounted() {
-        this.getImages();
+        // this.getImages();
     }
 }
 </script>
